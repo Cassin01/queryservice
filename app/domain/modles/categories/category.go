@@ -1,0 +1,21 @@
+package categories
+
+// カテゴリエンティティ
+type Category struct {
+	id   string
+	name string
+}
+
+// コンストラクタ
+func NewCateogory(id string, name string) *Category {
+	return &Category{id: id, name: name}
+}
+
+// ゲーター
+func (ins *Category) Id() string {
+	return ins.id
+}
+
+func (ins *Category) Name() string {
+	return ins.name
+}

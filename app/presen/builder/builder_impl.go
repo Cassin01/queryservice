@@ -2,7 +2,6 @@ package builder
 
 import (
 	"log"
-
 	"queryservice/domain/models/categories"
 	"queryservice/domain/models/products"
 	"queryservice/errs"
@@ -102,3 +101,4 @@ func (ins *resultBuilderImpl) BuildErrorResult(source any) *pb.Error {
 		return &pb.Error{Type: "INTERNAL Error", Message: "只今、サービスを提供できません。"}
 	}
 }
+
