@@ -11,7 +11,7 @@ import (
 // query_dbに接続
 func ConnectDB() (*gorm.DB, error) {
 	// データベースへ接続
-	dcs := "root:password@tcp(query_db:3306)/sample_db?charset=utf8mb4&parseTime=True&loc=Local"
+	dcs := "root:password@tcp(localhost:3306)/sample_db?charset=utf8mb4&parseTime=True&loc=Local"
 	conn, err := gorm.Open(mysql.Open(dcs), &gorm.Config{})
 	if err != nil {
 		return nil, DBErrHandler(err)

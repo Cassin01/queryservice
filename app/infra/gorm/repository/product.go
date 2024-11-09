@@ -14,7 +14,7 @@ import (
 
 // テーブル名とSQLステートメント
 const (
-	PRODUCT_TABLE   = "products"
+	PRODUCT_TABLE   = "product"
 	PRODUCT_COLUMNS = "product.obj_id AS p_id , product.name AS p_name , product.price AS p_price , product.category_id AS c_id , category.name AS c_name"
 	PRODUCT_JOIN    = "JOIN category ON product.category_id = category.obj_id"
 	PRODUCT_WHERE   = "product.obj_id = ?"
@@ -75,11 +75,11 @@ func (ins *productRepositoryGORM) FindByProductId(ctx context.Context, productid
 func (ins *productRepositoryGORM) FindByProductNameLike(ctx context.Context, keyword string) ([]*products.Product, error) {
 	models := []*models.Product{}
 	if result := ins.db.WithContext(ctx). // Contextを設定する
-						Table(PRODUCT_TABLE).                  // アクセスするテーブル名を設定する
-						Select(PRODUCT_COLUMNS).               // 取得する列を設定する
-						Joins(PRODUCT_JOIN).                   // カテゴリを結合する
-						Where(PRODUCT_WHERE, "%"+keyword+"%"). // 問い合わせ条件と値を設定する
-						Find(&models); result.Error != nil {   // 問い合わせした結果をスライスに格納する
+						Table(PRODUCT_TABLE).                 // アクセスするテーブル名を設定する
+						Select(PRODUCT_COLUMNS).              // 取得する列を設定する
+						Joins(PRODUCT_JOIN).                  // カテゴリを結合する
+						Where(PRODUCT_LIKE, "%"+keyword+"%"). // 問い合わせ条件と値を設定する
+						Find(&models); result.Error != nil {  // 問い合わせした結果をスライスに格納する
 		return nil, handler.DBErrHandler(result.Error)
 	}
 	if len(models) == 0 { // レコードが存在しない
