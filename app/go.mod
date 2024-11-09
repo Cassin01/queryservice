@@ -3,7 +3,8 @@ module queryservice
 go 1.23.2
 
 require (
-	github.com/Cassin01/samplepb v0.0.0-20241104095423-ac7e665cb24c
+	github.com/Cassin01/samplepb v0.0.0-20241109065021-9968d44d92ab
+	github.com/go-sql-driver/mysql v1.8.1
 	go.uber.org/fx v1.23.0
 	google.golang.org/grpc v1.68.0
 	google.golang.org/protobuf v1.35.1
@@ -12,7 +13,7 @@ require (
 )
 
 require (
-	github.com/go-sql-driver/mysql v1.7.0 // indirect
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	go.uber.org/dig v1.18.0 // indirect

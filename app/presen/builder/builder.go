@@ -14,7 +14,7 @@ type ResultBuilder interface {
 	BuildProductResult(source any) *pb.ProductResult
 
 	// []*product.Productを*pb.ProductResultに変換する
-	BuildProductResult(source any) *pb.ProductsResult
+	BuildProductsResult(source any) *pb.ProductsResult
 
 	// errs.CRUDERror, errs.InternalErrorを*pb.Errorに変換する
 	BuildErrorResult(source any) *pb.Error

@@ -1,7 +1,9 @@
 package gorm
 
 import (
+	"queryservice/infra/gorm/adapter"
 	"queryservice/infra/gorm/handler"
+	"queryservice/infra/gorm/repository"
 
 	"go.uber.org/fx"
 	"gorm.io/gorm"
@@ -17,11 +19,11 @@ var RepDepend = fx.Options(
 	DBModule,
 	fx.Provide(
 		// Adapterインターフェイス実装のコンストラクタを指定
-		adapter.NewcateogryAdapterImpl,
+		adapter.NewcategoryAdapterImpl,
 		adapter.NewproductAdapterImpl,
 
 		// Repositoryインターフェイス実装のコンストラクタを指定
-		repository.NewCategoryRepositoryGORM,
-		repository.NewProductRepositoryGORM,
+		repository.NewcategoryRepositoryGORM,
+		repository.NewproductRepositoryGORM,
 	),
 )

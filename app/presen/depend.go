@@ -12,9 +12,9 @@ import (
 var QueryDepend = fx.Options(
 	gorm.RepDepend,
 	fx.Provide( // プレゼンテーション層の依存定義
-		builder.NewresultBuilderIMpl,
+		builder.NewresultBuilderImpl,
 		server.NewcategoryServer,
-		server.NewproductServerIMpl,
+		server.NewproductServerImpl,
 		prepare.NewQueryServer,
 	),
 	fx.Invoke(prepare.QueryServiceLifecycle), // 起動
